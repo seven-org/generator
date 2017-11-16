@@ -3,9 +3,9 @@
 /logs/
 /bin/
 
-.classpath
-.project
-.settings
+*/.classpath
+*/.project
+*/.settings
   
 ##filter .swp file##
 .swp
