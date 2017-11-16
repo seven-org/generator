@@ -6,7 +6,9 @@
 */.classpath
 */.project
 */.settings
-  
+
+.project
+
 ##filter .swp file##
 .swp
 
