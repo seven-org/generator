@@ -5,20 +5,23 @@
 
 package ${basepackage}.controller;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
-import com.github.pagehelper.Page;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
+import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.*;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
 
-import org.apache.commons.lang.StringUtils;
+import org.junit.After;
+import org.junit.Before;
+import org.junit.Test;
+import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
+import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.http.MediaType;
-import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.test.annotation.Rollback;
+import org.springframework.test.context.junit4.SpringRunner;
+import org.springframework.test.web.servlet.MockMvc;
+import org.springframework.transaction.annotation.Transactional;
 
-import oracle.net.ano.Service;
 import ${basepackage}.dto.OperateResult;
 import ${basepackage}.model.${className};
 import ${basepackage}.service.${className}Service;
@@ -69,7 +72,7 @@ public class ${className}ControllerTest {
      * find${className}Detail 
      */
     @Test
-    public void testGet${className}s() throws Exception {
+    public void testGetOne${className}Detail() throws Exception {
         mockMvc.perform(get("/${version}/${classNameLower}s/1"))
         .andDo(print())
         .andExpect(status().isOk())

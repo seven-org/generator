@@ -20,8 +20,8 @@ public class GeneratorMain {
 //        DROP TABLE IF EXISTS t_shipping_mail;
 //        DROP TABLE IF EXISTS t_system_mail;
 //      g.deleteOutRootDir();   //删除生成器的输出目录
-        String templateDir = "/Users/se_ven/seven/workspace_sts/caishigou/go1/super_generator/template";
-        g.generateByTable("t_wechat_public_number_share", templateDir);     //通过数据库表生成文件,template为模板的根目录
+        String templateDir = "/Users/se_ven/git/generator/caishigo_generator/caishigo_generator_1/generator/caishigou_generator_extension_1/template";
+        g.generateByTable("t_join_family_validation", templateDir);     //通过数据库表生成文件,template为模板的根目录
 //        g.generateByTable("t_commercial_mail", templateDir);
 //        g.generateByTable("t_manager_mail", templateDir);
 //        g.generateByTable("t_shipping_mail", templateDir);

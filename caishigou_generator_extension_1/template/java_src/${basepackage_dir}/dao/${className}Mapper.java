@@ -43,6 +43,14 @@ public interface ${className}Mapper {
 	 * @return if success then != 0 else =0
 	 */
 	public Integer insert(${className} ${classNameLower});
+	
+	
+	/**
+	 * insertMultiple
+	 * @param ${classNameLower}s
+	 * @return Integer
+	 */
+	public Integer insertMultiple(List<${className}> ${classNameLower}s);
 
 
 	/**
@@ -51,6 +59,14 @@ public interface ${className}Mapper {
 	 * @return if success then != 0 else =0
 	 */
 	public Integer update(${className} ${classNameLower});
+	
+	
+	/**
+	 * Multiple
+	 * @param ${classNameLower}s
+	 * @return if success then != 0 else =0
+	 */
+	public Integer updateMultiple(List<${className}> ${classNameLower}s);
 
 
 	/**

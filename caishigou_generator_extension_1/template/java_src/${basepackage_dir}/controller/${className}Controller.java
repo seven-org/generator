@@ -33,7 +33,7 @@ import javax.servlet.http.HttpServletRequest;
  * @version
  */
 @RestController
-@RequestMapping("/${classNameLower}/${version}/")
+@RequestMapping("/${version}/${classNameLower}/")
 public class ${className}Controller {
 
 	@Autowired
@@ -92,9 +92,27 @@ public class ${className}Controller {
 	 */
 	@RequestMapping(value="${classNameLower}s/{id}", method=RequestMethod.PATCH, produces={MediaType.APPLICATION_JSON_VALUE+";charset=utf-8"})
 	public JsonResponse<${className}> modify${className}Detail(@PathVariable("id")Integer id, @RequestBody ${className} ${classNameLower}, HttpServletRequest request){
-		${classNameLower}.setId(id);
+		${classNameLower}.setId(id.toString());
 		${classNameLower}Service.update(${classNameLower});
 		return new JsonResponse<${className}>(ResultUtils.success, ResultUtils.successMsg, ${classNameLower}Service.get(id.toString()));
+	}
+	
+	
+	/**
+	 * 
+	 * @date <#if now??>${now?string('yyyy-MM-dd HH:mm:ss')}</#if>
+	 * @Title: updateMultiple${className} 
+	 * @Description: TODO
+	 * @param @param ${classNameLower}List
+	 * @param @param request
+	 * @param @return
+	 * @return JsonResponse<>
+	 * @throws
+	 */
+	@RequestMapping(value="${classNameLower}List", method=RequestMethod.PATCH, produces={MediaType.APPLICATION_JSON_VALUE+";charset=utf-8"})
+	public JsonResponse<?> modifyMultiple${className}Detail(@RequestBody List<${className}> ${classNameLower}List, HttpServletRequest request){
+		${classNameLower}Service.updateMultiple(${classNameLower}List);
+		return new JsonResponse<>(ResultUtils.success, ResultUtils.successMsg);
 	}
 	
 	
@@ -114,6 +132,25 @@ public class ${className}Controller {
 		${classNameLower}Service.insert(${classNameLower});
 		return new JsonResponse<${className}>(ResultUtils.success, ResultUtils.successMsg, ${classNameLower}Service.findList(${classNameLower}).get(0));
 	}
+	
+	
+	/**
+	 * 
+	 * @date <#if now??>${now?string('yyyy-MM-dd HH:mm:ss')}</#if>
+	 * @Title: addMultiple${className} 
+	 * @Description: TODO
+	 * @param @param ${classNameLower}List
+	 * @param @param request
+	 * @param @return
+	 * @return JsonResponse<>
+	 * @throws
+	 */
+	@RequestMapping(value="${classNameLower}List", method=RequestMethod.POST, produces={MediaType.APPLICATION_JSON_VALUE+";charset=utf-8"})
+	public JsonResponse<?> addMultiple${className}(@RequestBody List<${className}> ${classNameLower}List, HttpServletRequest request){
+		${classNameLower}Service.insertMultiple(${classNameLower}List);
+		return new JsonResponse<>(ResultUtils.success, ResultUtils.successMsg);
+	}
+	
 	
 	/**
 	 * 

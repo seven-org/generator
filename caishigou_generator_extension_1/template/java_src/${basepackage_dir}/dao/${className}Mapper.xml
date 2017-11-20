@@ -40,7 +40,7 @@
 	</select>
 
 	<insert id="insert" parameterType="${basepackage}.model.${className}">
-		INSERT INTO ${table.sqlName} (
+		INSERT INTO `${table.sqlName}` (
 		<#list table.notPkColumns as column>
 			<if test="${column.columnNameLower}!=null">`${column.sqlName}`,</if>
 		</#list>
@@ -56,6 +56,27 @@
 		</#list>
 		)
 	</insert>
+	
+	<insert id="insertMultiple" parameterType="java.util.List">
+	    insert into `${table.sqlName}` (
+	    <#list table.notPkColumns as column>
+			`${column.sqlName}`,
+		</#list>
+		<#list table.compositeIdColumns as column>
+			`${column.sqlName}`
+		</#list>
+	    	) VALUES
+	    <foreach collection="list" item="item" index="index" separator="," >
+	        (
+	        <#list table.notPkColumns as column>
+				<@mapperEl "item." + column.columnNameFirstLower/>,
+			</#list>
+			<#list table.compositeIdColumns as column>
+				<@mapperEl "item." + column.columnNameFirstLower/>
+			</#list>
+	        )
+	    </foreach>
+	</insert>
 
 	<update id="update" parameterType="${basepackage}.model.${className}">
 		UPDATE `${table.sqlName}` SET
@@ -69,6 +90,22 @@
 		<#list table.compositeIdColumns as column>
 			`${column.sqlName}` = <@mapperEl column.columnNameFirstLower/>
 		</#list>
+	</update>
+	
+	<update id="updateMultiple" parameterType="java.util.List">  
+	    <foreach collection="list" item="item" index="index" open="" close="" separator=";">
+	        UPDATE `${table.sqlName}` SET
+			<#list table.notPkColumns as column>
+				`${column.sqlName}` = <@mapperEl "item." + column.columnNameFirstLower/> ,
+			</#list>
+			<#list table.compositeIdColumns as column>
+				`${column.sqlName}` = <@mapperEl "item." + column.columnNameFirstLower/>
+				</#list>
+				WHERE
+			<#list table.compositeIdColumns as column>
+				`${column.sqlName}` = <@mapperEl "item." + column.columnNameFirstLower/>
+			</#list>
+	    </foreach>
 	</update>
 	
 	<update id="delete" parameterType="String">

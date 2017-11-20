@@ -54,10 +54,21 @@ public class ${className}ServiceImpl implements ${className}Service {
         return ${classNameLower}Mapper.insert(${classNameLower});
     }
 
+	public Integer insertMultiple(List<${className}> ${classNameLower}s) {
+		//createTime
+		return ${classNameLower}Mapper.insertMultiple(${classNameLower}s);
+	}
+	
     @Override
     public Integer update(${className} ${classNameLower}) {
         ${classNameLower}.setUpdateTime(new Date());
         return ${classNameLower}Mapper.update(${classNameLower});
+    }
+    
+    @Override
+    public Integer updateMultiple(List<${className}> ${classNameLower}s) {
+    	//updateTime
+        return ${classNameLower}Mapper.updateMultiple(${classNameLower}s);
     }
 
     @Override
