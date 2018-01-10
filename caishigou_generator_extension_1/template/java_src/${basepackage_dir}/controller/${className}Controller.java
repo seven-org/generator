@@ -7,6 +7,8 @@ package ${basepackage}.controller;
 
 import com.github.pagehelper.Page;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.apache.commons.lang.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
@@ -36,6 +38,8 @@ import javax.servlet.http.HttpServletRequest;
 @RequestMapping("/${version}/${classNameLower}/")
 public class ${className}Controller {
 
+	private static final Logger logger = LoggerFactory.getLogger(${className}Controller.class);
+	
 	@Autowired
 	private ${className}Service  ${classNameLower}Service;
 
@@ -92,7 +96,7 @@ public class ${className}Controller {
 	 */
 	@RequestMapping(value="${classNameLower}s/{id}", method=RequestMethod.PATCH, produces={MediaType.APPLICATION_JSON_VALUE+";charset=utf-8"})
 	public JsonResponse<${className}> modify${className}Detail(@PathVariable("id")Integer id, @RequestBody ${className} ${classNameLower}, HttpServletRequest request){
-		${classNameLower}.setId(id.toString());
+		${classNameLower}.setId(id);
 		${classNameLower}Service.update(${classNameLower});
 		return new JsonResponse<${className}>(ResultUtils.success, ResultUtils.successMsg, ${classNameLower}Service.get(id.toString()));
 	}
