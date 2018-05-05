@@ -23,7 +23,7 @@
 	<entry key="namespace">pages</entry>
 	
 	<!-- 自动生成的代码存放路径-->
-	<entry key="outRoot">/home/seven/Record/generator/caishigou</entry>
+	<entry key="outRoot">/Users/se_ven/seven/lumiseven/code_generator/caishigou</entry>
 
 	<!-- 需要移除的表名前缀,使用逗号进行分隔多个前缀,示例值: -->
 	<entry key="tableRemovePrefixes">EXH_,t_sse,t_,v_</entry>
@@ -49,7 +49,7 @@
 	-->
 	
 	<!-- Mysql -->
-	<entry key="jdbc.url">jdbc:mysql://119.23.135.132:3306/foodmarket?useUnicode=true&amp;useSSL=false&amp;characterEncoding=UTF-8&amp;zeroDateTimeBehavior=convertToNull</entry>
+	<entry key="jdbc.url">jdbc:mysql://192.168.0.114:3306/foodmarket?useUnicode=true&amp;characterEncoding=UTF-8&amp;zeroDateTimeBehavior=convertToNull</entry>
 	<entry key="jdbc.driver">com.mysql.jdbc.Driver</entry>
 
 	<!-- Oracle 	jdbc:oracle:oci:@tnsname_devdb
