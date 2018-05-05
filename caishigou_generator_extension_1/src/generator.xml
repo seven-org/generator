@@ -28,6 +28,9 @@
 	<!-- 需要移除的表名前缀,使用逗号进行分隔多个前缀,示例值: -->
 	<entry key="tableRemovePrefixes">EXH_,t_sse,t_,v_</entry>
 	
+	<!-- <entry key="jdbc.username">root</entry>
+	<entry key="jdbc.password">csgcsg2017</entry> -->
+	
 	<entry key="jdbc.username">root</entry>
 	<entry key="jdbc.password">csgcsg2017</entry>
 		

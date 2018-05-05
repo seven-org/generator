@@ -5,7 +5,8 @@
 package ${basepackage}.service;
 
 
-import org.apache.log4j.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import java.util.List;
@@ -30,7 +31,7 @@ public class ${className}ServiceImpl implements ${className}Service {
     @Autowired
     private ${className}Mapper ${classNameLower}Mapper;
 
-    private static Logger logger = LoggerFactory.getLogger(${className}ServiceImpl.class);
+    private static final Logger logger = LoggerFactory.getLogger(${className}ServiceImpl.class);
 
     @Override
     public ${className} get(String ${table.pkColumn.columnNameFirstLower}) {
@@ -42,6 +43,11 @@ public class ${className}ServiceImpl implements ${className}Service {
         return ${classNameLower}Mapper.findList(${classNameLower});
     }
 
+    @Override
+    public Integer findListCount(${className} ${classNameLower}) {
+        return ${classNameLower}Mapper.findListCount(${classNameLower});
+    }
+    
     @Override
     public Page<${className}> findListByPage(${className} ${classNameLower}, Pagenation pagenation) {
         PageHelper.startPage(pagenation.getPageNum(), pagenation.getPageSize());

@@ -26,11 +26,18 @@ public interface ${className}Service {
 	public ${className} get(String ${table.pkColumn.columnNameFirstLower});
 
 	/**
-	 * query
+	 * query list
 	 * @param ${classNameLower}
 	 * @return List<${className}>
 	 */
 	public List<${className}> findList(${className} ${classNameLower});
+	
+	/**
+	 * query list count
+	 * @param ${classNameLower}
+	 * @return List<${className}>
+	 */
+	public Integer findListCount(${className} ${classNameLower});
 
 	/**
 	 * query

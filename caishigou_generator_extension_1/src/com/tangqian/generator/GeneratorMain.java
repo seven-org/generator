@@ -29,9 +29,5 @@ public class GeneratorMain {
 //        g.generateByTable("t_group_purchase_user", templateDir);
 //        g.generateByTable("t_group_purchase_order", templateDir);
 //        g.generateByTable("t_group_purchase_order_goods", templateDir);
-//        g.generateByTable("t_commercial_mail", templateDir);
-//        g.generateByTable("t_manager_mail", templateDir);
-//        g.generateByTable("t_shipping_mail", templateDir);
-//        g.generateByTable("t_system_mail", templateDir);
     }
 }
