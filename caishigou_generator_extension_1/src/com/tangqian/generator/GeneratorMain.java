@@ -22,8 +22,8 @@ public class GeneratorMain {
 //      g.deleteOutRootDir();   //删除生成器的输出目录
         String templateDir = "/Users/se_ven/git/generator/caishigo_generator/caishigo_generator_1/generator/caishigou_generator_extension_1/template";
 //        g.generateByAllTable(templateDir);		//generate all tables 
-        g.generateByTable("t_opened_city", templateDir);     //通过数据库表生成文件,template为模板的根目录
-        
+        g.generateByTable("t_prepare_agent_join_info", templateDir);     //通过数据库表生成文件,template为模板的根目录
+//        g.generateByTable("t_group_purchase_order_goods", templateDir);
 //        g.generateByTable("t_commercial_mail", templateDir);
 //        g.generateByTable("t_manager_mail", templateDir);
 //        g.generateByTable("t_shipping_mail", templateDir);

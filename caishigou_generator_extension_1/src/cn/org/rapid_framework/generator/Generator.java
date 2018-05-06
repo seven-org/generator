@@ -373,7 +373,7 @@ public class Generator {
 //			String autoIncludes = new File(new File(templateName).getParent(),"macro.include").getPath();
 //			List<String> availableAutoInclude = FreemarkerHelper.getAvailableAutoInclude(conf, Arrays.asList("macro.include",autoIncludes));
 //			conf.setAutoIncludes(availableAutoInclude);
-//			GLogger.info("[set Freemarker.autoIncludes]"+availableAutoInclude+" for templateName:"+templateName);
+//			GSystem.out.println("[set Freemarker.autoIncludes]"+availableAutoInclude+" for templateName:"+templateName);
 			
 			List<String> autoIncludes = getParentPaths(templateName,"macro.include");
 			List<String> availableAutoInclude = FreemarkerHelper.getAvailableAutoInclude(conf,autoIncludes);
