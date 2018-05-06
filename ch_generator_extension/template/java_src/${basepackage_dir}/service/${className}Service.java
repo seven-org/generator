@@ -5,9 +5,9 @@
 package ${basepackage}.service;
 
 import com.github.pagehelper.Page;
-import ${basepackage}.model.Pagenation;
+import ${basepackage}.component.Pagenation;
 
-import ${basepackage}.model.${className};
+import ${basepackage}.entity.${className};
 
 import java.util.List;
 

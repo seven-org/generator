@@ -15,9 +15,9 @@ import java.util.Date;
 import com.github.pagehelper.Page;
 import com.github.pagehelper.PageHelper;
 
-import ${basepackage}.mapper.${className}Mapper;
-import ${basepackage}.model.${className};
-import ${basepackage}.model.Pagenation;
+import ${basepackage}.dao.${className}Mapper;
+import ${basepackage}.entity.${className};
+import ${basepackage}.component.Pagenation;
 import ${basepackage}.service.${className}Service;
 
 /**

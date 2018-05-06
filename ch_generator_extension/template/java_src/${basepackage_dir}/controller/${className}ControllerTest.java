@@ -22,13 +22,13 @@ import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.transaction.annotation.Transactional;
 
-import ${basepackage}.dto.OperateResult;
-import ${basepackage}.model.${className};
+import ${basepackage}.entity.${className};
 import ${basepackage}.service.${className}Service;
-import ${basepackage}.model.JsonResponse;
-import ${basepackage}.model.Pagenation;
-import ${basepackage}.util.ResultUtils;
+import ${basepackage}.component.JsonResponse;
+import ${basepackage}.component.Pagenation;
+import ${basepackage}.utils.ResultUtils;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
 import javax.servlet.http.HttpServletRequest;
 
 /**

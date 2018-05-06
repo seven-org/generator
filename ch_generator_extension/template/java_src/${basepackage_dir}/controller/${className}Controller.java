@@ -9,23 +9,26 @@ import com.github.pagehelper.Page;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.apache.commons.lang.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import oracle.net.ano.Service;
-import ${basepackage}.dto.OperateResult;
-import ${basepackage}.model.${className};
+import ${basepackage}.entity.${className};
 import ${basepackage}.service.${className}Service;
-import ${basepackage}.model.JsonResponse;
-import ${basepackage}.model.Pagenation;
-import ${basepackage}.util.ResultUtils;
+import ${basepackage}.component.JsonResponse;
+import ${basepackage}.component.PageJsonResponse;
+import ${basepackage}.component.Pagenation;
+import ${basepackage}.utils.ResultUtils;
+
+import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 
@@ -35,11 +38,9 @@ import javax.servlet.http.HttpServletRequest;
  * @version
  */
 @RestController
-@RequestMapping("/${version}/${classNameLower}/")
+@RequestMapping("/${version}/")
 public class ${className}Controller {
 	
-	private static final Logger logger = LoggerFactory.getLogger(${className}Controller.class);
-
 	private static final Logger logger = LoggerFactory.getLogger(${className}Controller.class);
 	
 	@Autowired

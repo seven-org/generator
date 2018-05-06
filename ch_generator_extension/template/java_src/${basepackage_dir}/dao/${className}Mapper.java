@@ -3,10 +3,10 @@
 <#assign classNameLower = className?uncap_first>
 <#assign shortName = table.shortName>
 
-package ${basepackage}.mapper;
+package ${basepackage}.dao;
 
 import com.github.pagehelper.Page;
-import ${basepackage}.model.${className};
+import ${basepackage}.entity.${className};
 import java.util.List;
 
 /**
