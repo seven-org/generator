@@ -3,8 +3,6 @@
 /logs/
 /bin/
 
-!freemarker.jar
-
 .classpath
 .project
 .settings
