@@ -5,6 +5,7 @@
 package ${basepackage}.service;
 
 import com.github.pagehelper.Page;
+import ${basepackage}.model.Pagenation;
 
 import ${basepackage}.model.${className};
 
@@ -25,11 +26,18 @@ public interface ${className}Service {
 	public ${className} get(String ${table.pkColumn.columnNameFirstLower});
 
 	/**
-	 * query
+	 * query list
 	 * @param ${classNameLower}
 	 * @return List<${className}>
 	 */
 	public List<${className}> findList(${className} ${classNameLower});
+	
+	/**
+	 * query list count
+	 * @param ${classNameLower}
+	 * @return List<${className}>
+	 */
+	public Integer findListCount(${className} ${classNameLower});
 
 	/**
 	 * query
@@ -44,6 +52,14 @@ public interface ${className}Service {
 	 * @return
 	 */
 	public Integer insert(${className} ${classNameLower});
+	
+	
+	/**
+	 * insertMultiple
+	 * @param ${classNameLower}s
+	 * @return Integer
+	 */
+	public Integer insertMultiple(List<${className}> ${classNameLower}s);
 
 
 	/**
@@ -52,6 +68,14 @@ public interface ${className}Service {
 	 * @return
 	 */
 	public Integer update(${className} ${classNameLower});
+	
+	
+	/**
+	 * Multiple
+	 * @param ${classNameLower}s
+	 * @return if success then != 0 else =0
+	 */
+	public Integer updateMultiple(List<${className}> ${classNameLower}s);
 
 
 	/**

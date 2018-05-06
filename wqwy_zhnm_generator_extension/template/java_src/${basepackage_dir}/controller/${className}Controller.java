@@ -7,6 +7,8 @@ package ${basepackage}.controller;
 
 import com.github.pagehelper.Page;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.apache.commons.lang.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
@@ -17,6 +19,8 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import oracle.net.ano.Service;
+import ${basepackage}.dto.OperateResult;
 import ${basepackage}.model.${className};
 import ${basepackage}.service.${className}Service;
 import ${basepackage}.model.JsonResponse;
@@ -31,9 +35,13 @@ import javax.servlet.http.HttpServletRequest;
  * @version
  */
 @RestController
-@RequestMapping("/${classNameLower}/${version}/")
+@RequestMapping("/${version}/${classNameLower}/")
 public class ${className}Controller {
+	
+	private static final Logger logger = LoggerFactory.getLogger(${className}Controller.class);
 
+	private static final Logger logger = LoggerFactory.getLogger(${className}Controller.class);
+	
 	@Autowired
 	private ${className}Service  ${classNameLower}Service;
 
@@ -51,9 +59,9 @@ public class ${className}Controller {
 	 */
 	@RequestMapping(value="${classNameLower}s", method=RequestMethod.GET, produces={MediaType.APPLICATION_JSON_VALUE+";charset=utf-8"})
 	public PageJsonResponse<List<${className}>> findByPage(${className} ${classNameLower}, Pagenation pagenation, HttpServletRequest request, Model model) {
-		Page<${className}> queryResultList = ${classNameLower}Service.findListByPage(${className}, pagenation);
+		Page<${className}> queryResultList = ${classNameLower}Service.findListByPage(${classNameLower}, pagenation);
 		pagenation.setTotal(queryResultList.getTotal());
-		return new PageJsonResponse<List<${className}>>(ResultUtils.success, ResultUtils.successMsg, queryResultList);
+		return new PageJsonResponse<List<${className}>>(ResultUtils.success, ResultUtils.successMsg, queryResultList, pagenation);
 	}
 
 
@@ -71,7 +79,7 @@ public class ${className}Controller {
 	 */
 	@RequestMapping(value="${classNameLower}s/{id}", method=RequestMethod.GET, produces={MediaType.APPLICATION_JSON_VALUE+";charset=utf-8"})
 	public JsonResponse<${className}> find${className}Detail(@PathVariable("id")Integer id, ${className} ${classNameLower}, HttpServletRequest request){
-		${className} ${classNameLower} = ${classNameLower}Service.get(id.toString());
+		${classNameLower} = ${classNameLower}Service.get(id.toString());
 		return new JsonResponse<${className}>(ResultUtils.success, ResultUtils.successMsg, ${classNameLower});
 	}
 
@@ -90,9 +98,27 @@ public class ${className}Controller {
 	 */
 	@RequestMapping(value="${classNameLower}s/{id}", method=RequestMethod.PATCH, produces={MediaType.APPLICATION_JSON_VALUE+";charset=utf-8"})
 	public JsonResponse<${className}> modify${className}Detail(@PathVariable("id")Integer id, @RequestBody ${className} ${classNameLower}, HttpServletRequest request){
-		${classNameLower}.setId(id.toString());
+		${classNameLower}.setId(id);
 		${classNameLower}Service.update(${classNameLower});
-		return new JsonResponse<${className}>(ResultUtils.success, ResultUtils.successMsg, ${classNameLower}Service.get(id));
+		return new JsonResponse<${className}>(ResultUtils.success, ResultUtils.successMsg, ${classNameLower}Service.get(id.toString()));
+	}
+	
+	
+	/**
+	 * 
+	 * @date <#if now??>${now?string('yyyy-MM-dd HH:mm:ss')}</#if>
+	 * @Title: updateMultiple${className} 
+	 * @Description: TODO
+	 * @param @param ${classNameLower}List
+	 * @param @param request
+	 * @param @return
+	 * @return JsonResponse<>
+	 * @throws
+	 */
+	@RequestMapping(value="${classNameLower}List", method=RequestMethod.PATCH, produces={MediaType.APPLICATION_JSON_VALUE+";charset=utf-8"})
+	public JsonResponse<?> modifyMultiple${className}Detail(@RequestBody List<${className}> ${classNameLower}List, HttpServletRequest request){
+		${classNameLower}Service.updateMultiple(${classNameLower}List);
+		return new JsonResponse<>(ResultUtils.success, ResultUtils.successMsg);
 	}
 	
 	
@@ -113,6 +139,25 @@ public class ${className}Controller {
 		return new JsonResponse<${className}>(ResultUtils.success, ResultUtils.successMsg, ${classNameLower}Service.findList(${classNameLower}).get(0));
 	}
 	
+	
+	/**
+	 * 
+	 * @date <#if now??>${now?string('yyyy-MM-dd HH:mm:ss')}</#if>
+	 * @Title: addMultiple${className} 
+	 * @Description: TODO
+	 * @param @param ${classNameLower}List
+	 * @param @param request
+	 * @param @return
+	 * @return JsonResponse<>
+	 * @throws
+	 */
+	@RequestMapping(value="${classNameLower}List", method=RequestMethod.POST, produces={MediaType.APPLICATION_JSON_VALUE+";charset=utf-8"})
+	public JsonResponse<?> addMultiple${className}(@RequestBody List<${className}> ${classNameLower}List, HttpServletRequest request){
+		${classNameLower}Service.insertMultiple(${classNameLower}List);
+		return new JsonResponse<>(ResultUtils.success, ResultUtils.successMsg);
+	}
+	
+	
 	/**
 	 * 
 	 * @date <#if now??>${now?string('yyyy-MM-dd HH:mm:ss')}</#if>
@@ -127,7 +172,7 @@ public class ${className}Controller {
 	@RequestMapping(value="${classNameLower}s/{id}", method=RequestMethod.DELETE, produces={MediaType.APPLICATION_JSON_VALUE+";charset=utf-8"})
 	public JsonResponse<?> remove${className}(@PathVariable("id")Integer id, HttpServletRequest request){
 		${classNameLower}Service.delete(id.toString());
-		return new JsonResponse<>(ResultUtils.success, ResultUtils.successMsg, ${classNameLower});
+		return new JsonResponse<>(ResultUtils.success, ResultUtils.successMsg);
 	}
 	
 }
