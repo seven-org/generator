@@ -22,11 +22,11 @@ import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.transaction.annotation.Transactional;
 
-import ${basepackage}.entity.${className};
-import ${basepackage}.service.${className}Service;
-import ${basepackage}.component.JsonResponse;
-import ${basepackage}.component.Pagenation;
-import ${basepackage}.utils.ResultUtils;
+import ${basepackage}.base.entity.${className};
+import ${basepackage}.base.service.${className}Service;
+import ${basepackage}.base.component.component.JsonResponse;
+import ${basepackage}.base.component.component.Pagenation;
+import ${basepackage}.base.component.utils.ResultUtils;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import javax.servlet.http.HttpServletRequest;
