@@ -2,22 +2,23 @@
 <#assign className = table.className>
 <#assign classNameLower = className?uncap_first>
 <#assign shortName = table.shortName>
-package ${basepackage}.service;
+package ${basepackage}.base.service;
 
 
-import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import java.util.List;
 import java.util.Date;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import com.github.pagehelper.Page;
 import com.github.pagehelper.PageHelper;
 
-import ${basepackage}.mapper.${className}Mapper;
-import ${basepackage}.model.${className};
-import ${basepackage}.model.Pagenation;
-import ${basepackage}.service.${className}Service;
+import ${basepackage}.base.dao.${className}Mapper;
+import ${basepackage}.base.entity.${className};
+import ${basepackage}.base.component.component.Pagenation;
+import ${basepackage}.base.service.${className}Service;
 
 /**
  * createTime: <#if now??>${now?string('yyyy-MM-dd HH:mm:ss')}</#if>
@@ -30,7 +31,7 @@ public class ${className}ServiceImpl implements ${className}Service {
     @Autowired
     private ${className}Mapper ${classNameLower}Mapper;
 
-    private static Logger logger = Logger.getLogger(${className}ServiceImpl.class);
+    private static final Logger logger = LoggerFactory.getLogger(${className}ServiceImpl.class);
 
     @Override
     public ${className} get(String ${table.pkColumn.columnNameFirstLower}) {

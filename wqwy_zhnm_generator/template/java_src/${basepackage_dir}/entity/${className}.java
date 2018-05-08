@@ -3,7 +3,7 @@
 <#assign className = table.className>
 <#assign classNameLower = className?uncap_first>
 <#assign shortName = table.shortName>
-package ${basepackage}.model;
+package ${basepackage}.base.entity;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 import org.springframework.format.annotation.DateTimeFormat;

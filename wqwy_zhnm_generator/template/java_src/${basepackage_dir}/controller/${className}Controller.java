@@ -7,21 +7,26 @@ package ${basepackage}.controller;
 
 import com.github.pagehelper.Page;
 
-import org.apache.commons.lang.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import ${basepackage}.model.${className};
-import ${basepackage}.service.${className}Service;
-import ${basepackage}.model.JsonResponse;
-import ${basepackage}.model.Pagenation;
-import ${basepackage}.util.ResultUtils;
+import ${basepackage}.base.entity.${className};
+import ${basepackage}.base.service.${className}Service;
+import ${basepackage}.base.component.component.JsonResponse;
+import ${basepackage}.base.component.component.PageJsonResponse;
+import ${basepackage}.base.component.component.Pagenation;
+import ${basepackage}.base.component.utils.ResultUtils;
+
+import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 
@@ -31,7 +36,7 @@ import javax.servlet.http.HttpServletRequest;
  * @version
  */
 @RestController
-@RequestMapping("/${classNameLower}/${version}/")
+@RequestMapping("/${version}/")
 public class ${className}Controller {
 
 	@Autowired
@@ -51,9 +56,9 @@ public class ${className}Controller {
 	 */
 	@RequestMapping(value="${classNameLower}s", method=RequestMethod.GET, produces={MediaType.APPLICATION_JSON_VALUE+";charset=utf-8"})
 	public PageJsonResponse<List<${className}>> findByPage(${className} ${classNameLower}, Pagenation pagenation, HttpServletRequest request, Model model) {
-		Page<${className}> queryResultList = ${classNameLower}Service.findListByPage(${className}, pagenation);
+		Page<${className}> queryResultList = ${classNameLower}Service.findListByPage(${classNameLower}, pagenation);
 		pagenation.setTotal(queryResultList.getTotal());
-		return new PageJsonResponse<List<${className}>>(ResultUtils.success, ResultUtils.successMsg, queryResultList);
+		return new PageJsonResponse<List<${className}>>(ResultUtils.success, ResultUtils.successMsg, queryResultList, pagenation);
 	}
 
 
@@ -71,7 +76,7 @@ public class ${className}Controller {
 	 */
 	@RequestMapping(value="${classNameLower}s/{id}", method=RequestMethod.GET, produces={MediaType.APPLICATION_JSON_VALUE+";charset=utf-8"})
 	public JsonResponse<${className}> find${className}Detail(@PathVariable("id")Integer id, ${className} ${classNameLower}, HttpServletRequest request){
-		${className} ${classNameLower} = ${classNameLower}Service.get(id.toString());
+		${classNameLower} = ${classNameLower}Service.get(id.toString());
 		return new JsonResponse<${className}>(ResultUtils.success, ResultUtils.successMsg, ${classNameLower});
 	}
 
@@ -90,9 +95,9 @@ public class ${className}Controller {
 	 */
 	@RequestMapping(value="${classNameLower}s/{id}", method=RequestMethod.PATCH, produces={MediaType.APPLICATION_JSON_VALUE+";charset=utf-8"})
 	public JsonResponse<${className}> modify${className}Detail(@PathVariable("id")Integer id, @RequestBody ${className} ${classNameLower}, HttpServletRequest request){
-		${classNameLower}.setId(id.toString());
+		${classNameLower}.setId(id);
 		${classNameLower}Service.update(${classNameLower});
-		return new JsonResponse<${className}>(ResultUtils.success, ResultUtils.successMsg, ${classNameLower}Service.get(id));
+		return new JsonResponse<${className}>(ResultUtils.success, ResultUtils.successMsg, ${classNameLower}Service.get(id.toString()));
 	}
 	
 	
@@ -127,7 +132,7 @@ public class ${className}Controller {
 	@RequestMapping(value="${classNameLower}s/{id}", method=RequestMethod.DELETE, produces={MediaType.APPLICATION_JSON_VALUE+";charset=utf-8"})
 	public JsonResponse<?> remove${className}(@PathVariable("id")Integer id, HttpServletRequest request){
 		${classNameLower}Service.delete(id.toString());
-		return new JsonResponse<>(ResultUtils.success, ResultUtils.successMsg, ${classNameLower});
+		return new JsonResponse<>(ResultUtils.success, ResultUtils.successMsg);
 	}
 	
 }

@@ -2,11 +2,12 @@
 <#assign className = table.className>
 <#assign classNameLower = className?uncap_first>
 <#assign shortName = table.shortName>
-package ${basepackage}.service;
+package ${basepackage}.base.service;
 
 import com.github.pagehelper.Page;
 
-import ${basepackage}.model.${className};
+import ${basepackage}.base.component.component.Pagenation;
+import ${basepackage}.base.entity.${className};
 
 import java.util.List;
 

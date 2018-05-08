@@ -15,7 +15,7 @@ public class GeneratorMain {
         GeneratorFacade g = new GeneratorFacade();
         
 //      g.deleteOutRootDir();   //删除生成器的输出目录
-      g.generateByTable("sys_user","/home/seven/tool/git/repositories_for_seven/generator/generator/wqwy_zhnm_generator/template");     //通过数据库表生成文件,template为模板的根目录
+      g.generateByTable("balance","/home/seven/tool/git/repositories_for_seven/generator/generator/wqwy_zhnm_generator/template");     //通过数据库表生成文件,template为模板的根目录
       
     }
 }
