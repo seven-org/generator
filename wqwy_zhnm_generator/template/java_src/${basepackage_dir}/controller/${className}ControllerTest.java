@@ -61,7 +61,7 @@ public class ${className}ControllerTest {
      */
     @Test
     public void testGet${className}s() throws Exception {
-        mockMvc.perform(get("/${version}/${classNameLower}s"))
+        mockMvc.perform(get("/${version}/${classNameLower}s").header(DefaultConstants.TOKEN, TestConsts.TokenValue))
         .andDo(print())
         .andExpect(status().isOk())
         .andExpect(content().contentType(MediaType.APPLICATION_JSON_UTF8_VALUE))
@@ -73,18 +73,11 @@ public class ${className}ControllerTest {
      */
     @Test
     public void testGetOne${className}Detail() throws Exception {
-        mockMvc.perform(get("/${version}/${classNameLower}s/1"))
+        mockMvc.perform(get("/${version}/${classNameLower}s/1").header(DefaultConstants.TOKEN, TestConsts.TokenValue))
         .andDo(print())
         .andExpect(status().isOk())
         .andExpect(content().contentType(MediaType.APPLICATION_JSON_UTF8_VALUE))
         .andReturn().getResponse().getContentAsString();
     }
     
-    public static String asJsonString(final Object obj) {
-	    try {
-	        return new ObjectMapper().writeValueAsString(obj);
-	    } catch (Exception e) {
-	        throw new RuntimeException(e);
-	    }
-	}
 }
