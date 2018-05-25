@@ -69,6 +69,38 @@ public class ${className}ControllerTest {
     }
     
     /**
+     * post
+     */
+    @Test
+    public void testGet${className}s() throws Exception {
+    	${className} ${classNameLower} = new ${className}();
+        mockMvc.perform(post("/${version}/${classNameLower}s")
+        		.header(DefaultConstants.TOKEN, TestConsts.TokenValue)
+        		.contentType(MediaType.APPLICATION_JSON)
+        		.content(JsonUtils.AsJsonString(${classNameLower})))
+        .andDo(print())
+        .andExpect(status().isOk())
+        .andExpect(content().contentType(MediaType.APPLICATION_JSON_UTF8_VALUE))
+        .andReturn().getResponse().getContentAsString();
+    }
+    
+    /**
+     * patch
+     */
+    @Test
+    public void testGet${className}s() throws Exception {
+    	${className} ${classNameLower} = new ${className}();
+        mockMvc.perform(patch("/${version}/${classNameLower}s")
+        		.header(DefaultConstants.TOKEN, TestConsts.TokenValue)
+        		.contentType(MediaType.APPLICATION_JSON)
+        		.content(JsonUtils.AsJsonString(${classNameLower})))
+        .andDo(print())
+        .andExpect(status().isOk())
+        .andExpect(content().contentType(MediaType.APPLICATION_JSON_UTF8_VALUE))
+        .andReturn().getResponse().getContentAsString();
+    }
+    
+    /**
      * find${className}Detail 
      */
     @Test

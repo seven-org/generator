@@ -21,7 +21,7 @@ public class GeneratorMain {
 //        for (int i=0; i<tableArray.length; i++) {
 //        	g.generateByTable(tableArray[i], templateDir);
 //        }
-        g.generateByTable("market", templateDir);
+        g.generateByTable("validate_code", templateDir);
       
     }
 }
