@@ -39,6 +39,11 @@ public class ${className}ServiceImpl implements ${className}Service {
     }
 
     @Override
+	public Integer getCountByCondition(${className} ${classNameLower} ) {
+    	return ${classNameLower}Mapper.getCountByCondition(${classNameLower});
+	}
+	
+    @Override
     public List<${className}> findList(${className} ${classNameLower}) {
         return ${classNameLower}Mapper.findList(${classNameLower});
     }

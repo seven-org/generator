@@ -22,6 +22,13 @@ public interface ${className}Mapper {
 	 * @return ${className}
 	 */
 	public ${className} get(String ${table.pkColumn.columnNameFirstLower} );
+	
+	/**
+	 * query by condition
+	 * @param ${classNameLower}
+	 * @return Integer
+	 */
+	public Integer getCountByCondition(${className} ${classNameLower} );
 
 	/**
 	 * query by condition

@@ -26,6 +26,13 @@ public interface ${className}Service {
 	public ${className} get(String ${table.pkColumn.columnNameFirstLower});
 
 	/**
+	 * query by condition
+	 * @param ${classNameLower}
+	 * @return Integer
+	 */
+	public Integer getCountByCondition(${className} ${classNameLower} );
+	
+	/**
 	 * query
 	 * @param ${classNameLower}
 	 * @return List<${className}>

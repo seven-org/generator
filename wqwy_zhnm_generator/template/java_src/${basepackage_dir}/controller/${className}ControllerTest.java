@@ -72,8 +72,9 @@ public class ${className}ControllerTest {
      * post
      */
     @Test
-    public void testGet${className}s() throws Exception {
+    public void testPost${className}s() throws Exception {
     	${className} ${classNameLower} = new ${className}();
+    	System.out.println(JsonUtils.AsJsonString(${classNameLower}));
         mockMvc.perform(post("/${version}/${classNameLower}s")
         		.header(DefaultConstants.TOKEN, TestConsts.TokenValue)
         		.contentType(MediaType.APPLICATION_JSON)
@@ -88,12 +89,26 @@ public class ${className}ControllerTest {
      * patch
      */
     @Test
-    public void testGet${className}s() throws Exception {
+    public void testPatch${className}s() throws Exception {
     	${className} ${classNameLower} = new ${className}();
+    	System.out.println(JsonUtils.AsJsonString(${classNameLower}));
         mockMvc.perform(patch("/${version}/${classNameLower}s")
         		.header(DefaultConstants.TOKEN, TestConsts.TokenValue)
         		.contentType(MediaType.APPLICATION_JSON)
         		.content(JsonUtils.AsJsonString(${classNameLower})))
+        .andDo(print())
+        .andExpect(status().isOk())
+        .andExpect(content().contentType(MediaType.APPLICATION_JSON_UTF8_VALUE))
+        .andReturn().getResponse().getContentAsString();
+    }
+    
+    /**
+     * delete
+     */
+    @Test
+    public void testDelete${className}s() throws Exception {
+        mockMvc.perform(delete("/${version}/${classNameLower}s")
+        		.header(DefaultConstants.TOKEN, TestConsts.TokenValue))
         .andDo(print())
         .andExpect(status().isOk())
         .andExpect(content().contentType(MediaType.APPLICATION_JSON_UTF8_VALUE))
