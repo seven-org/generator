@@ -43,8 +43,8 @@ public class GeneratorMain {
 		// g.generateByTable("t_hospital_appointment_capital_record", templateDir);
 		// g.generateByTable("t_system_menu", templateDir);
 
-		g.generateByTable("jjt_member", templateDir);
-//		g.generateByTable("jjt_member_account", templateDir);
+//		g.generateByTable("jjt_member", templateDir);
+		g.generateByTable("jjt_member_account", templateDir);
 //		g.generateByTable("jjt_member_account_records", templateDir);
 //		g.generateByTable("jjt_member_balance_withdraw", templateDir);
 //		g.generateByTable("jjt_member_bank_account", templateDir);

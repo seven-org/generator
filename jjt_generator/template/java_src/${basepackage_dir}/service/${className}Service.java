@@ -7,7 +7,7 @@ package ${basepackage}.service;
 
 import com.github.pagehelper.Page;
 import com.jjt.store.component.base.Pagenation;
-import ${basepackage}.domain.dto.MemberDTO;
+import ${basepackage}.domain.dto.${className}DTO;
 
 import java.util.List;
 

@@ -3,7 +3,7 @@
 <#assign classNameLower = className?uncap_first>
 <#assign shortName = table.shortName>
 
-package ${basepackage}.controller;
+package ${basepackage}.api.controller;
 
 import io.swagger.annotations.Api;
 import com.github.pagehelper.Page;
@@ -24,8 +24,8 @@ import com.jjt.store.component.base.JsonResponse;
 import com.jjt.store.component.base.PageJsonResponse;
 import com.jjt.store.component.base.Pagenation;
 import com.jjt.store.component.base.utils.ResultUtils;
-import ${basepackage}.domain.dto.MemberDTO;
-import ${basepackage}.service.MemberService;
+import ${basepackage}.domain.dto.${className}DTO;
+import ${basepackage}.service.${className}Service;
 
 import java.util.List;
 

@@ -2,7 +2,8 @@
 <#assign className = table.className>
 <#assign classNameLower = className?uncap_first>
 <#assign shortName = table.shortName>
-package ${basepackage}.base.service;
+
+package ${basepackage}.service;
 
 
 import java.util.Date;
@@ -16,8 +17,8 @@ import org.springframework.stereotype.Service;
 import com.github.pagehelper.Page;
 import com.github.pagehelper.PageHelper;
 import com.jjt.store.component.base.Pagenation;
-import ${basepackage}.dao.MemberMapper;
-import ${basepackage}.domain.dto.MemberDTO;
+import ${basepackage}.dao.${className}Mapper;
+import ${basepackage}.domain.dto.${className}DTO;
 
 /**
  * createTime: <#if now??>${now?string('yyyy-MM-dd HH:mm:ss')}</#if>

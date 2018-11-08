@@ -3,7 +3,7 @@
 <#assign classNameLower = className?uncap_first>
 <#assign shortName = table.shortName>
 
-package ${basepackage}.controller;
+package ${basepackage}.api.controller;
 
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
 import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.*;
