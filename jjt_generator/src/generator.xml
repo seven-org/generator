@@ -49,7 +49,7 @@
 	-->
 	
 	<!-- Mysql -->
-	<entry key="jdbc.url">jdbc:mysql://localhost:3306/jjt_store?useSSL=false&amp;useUnicode=true&amp;zeroDateTimeBehavior=convertToNull&amp;characterEncoding=UTF-8</entry>
+	<entry key="jdbc.url">jdbc:mysql://localhost:3306/jjt_store?useSSL=false&amp;useUnicode=true&amp;zeroDateTimeBehavior=convertToNull&amp;characterEncoding=UTF-8&amp;useInformationSchema=true</entry>
 	<entry key="jdbc.driver">com.mysql.jdbc.Driver</entry>
 
 	<!-- Oracle 	jdbc:oracle:oci:@tnsname_devdb
