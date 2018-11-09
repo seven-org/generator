@@ -36,7 +36,7 @@ import javax.servlet.http.HttpServletRequest;
  * @author ${author}
  * @version
  */
-@Api(value="controller",tags={"${table.remarks} 相关操作接口"})
+@Api(value="${table.remarks} controller",tags={"${table.remarks} 相关操作接口"})
 @RestController
 @RequestMapping("/${version}/")
 public class ${className}Controller {

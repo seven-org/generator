@@ -5,6 +5,7 @@
 **简要描述：** 
 
 - 获取${className}列表接口
+- ${table.remarks}对象
 
 **请求URL：** 
 - ` /{version}/${classNameFirstLower}s `

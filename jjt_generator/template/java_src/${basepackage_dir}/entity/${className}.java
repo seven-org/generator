@@ -17,7 +17,7 @@ import org.springframework.format.annotation.DateTimeFormat;
  * @author ${author}
  * @version
  */
-@ApiModel(value="${className} ", description="${table.remarks}对象")
+@ApiModel(value="${className} ${table.remarks}", description="${table.remarks} 对象")
 public class ${className}{
 
     <#list table.columns as column>
