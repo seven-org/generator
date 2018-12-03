@@ -3,12 +3,12 @@
 /logs/
 /bin/
 
-*/.classpath
-*/.project
-*/.settings
+!freemarker.jar
 
+.classpath
 .project
-
+.settings
+  
 ##filter .swp file##
 .swp
 
@@ -46,4 +46,6 @@ ehthumbs.db
 Thumbs.db  
 
 !.mvn/wrapper/maven-wrapper.jar
-/.metadata/
+
+##user special
+GeneratorMain.java

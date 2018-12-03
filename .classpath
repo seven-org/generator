@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="src" path="caishigo_generator_base/src"/>
+	<classpathentry kind="src" path="caishigou_generator_extension_1/src"/>
+	<classpathentry kind="src" path="ch_generator_extension/src"/>
+	<classpathentry kind="src" path="jjt_generator_extension_1/src"/>
+	<classpathentry kind="src" path="jjt_generator/src"/>
+	<classpathentry kind="src" path="wqwy_zhnm_generator_extension/src"/>
+	<classpathentry kind="src" path="wqwy_zhnm_generator/src"/>
+	<classpathentry kind="lib" path="caishigou_generator_extension_1/lib/freemarker.jar"/>
+	<classpathentry kind="lib" path="jjt_generator_extension_1/lib/freemarker.jar"/>
+	<classpathentry kind="lib" path="jjt_generator/lib/freemarker.jar"/>
+	<classpathentry kind="lib" path="wqwy_zhnm_generator_extension/lib/freemarker.jar"/>
+	<classpathentry kind="lib" path="wqwy_zhnm_generator/lib/freemarker.jar"/>
+	<classpathentry kind="output" path="caishigou_generator_extension_1/bin"/>
+</classpath>

@@ -3,7 +3,8 @@
 <#assign className = table.className>
 <#assign classNameLower = className?uncap_first>
 <#assign shortName = table.shortName>
-package ${basepackage}.base.entity;
+
+package ${basepackage}.base.model;
 
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
@@ -16,7 +17,7 @@ import org.springframework.format.annotation.DateTimeFormat;
  * @author ${author}
  * @version
  */
-@ApiModel(value="${className} ()",description="对象")
+@ApiModel(value="${className} ${table.remarks}", description="${table.remarks} 对象")
 public class ${className}{
 
     <#list table.columns as column>
