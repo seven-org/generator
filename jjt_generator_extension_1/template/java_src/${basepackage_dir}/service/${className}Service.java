@@ -52,13 +52,6 @@ public interface ${className}Service {
 	 * @return List<${className}DTO>
 	 */
 	public List<${className}DTO> findList(${className}DTO ${classNameLower});
-	
-	/**
-	 * query list count
-	 * @param ${classNameLower}DTO
-	 * @return List<${className}DTO>
-	 */
-	public Integer findListCount(${className}DTO ${classNameLower});
 
 	/**
 	 * query

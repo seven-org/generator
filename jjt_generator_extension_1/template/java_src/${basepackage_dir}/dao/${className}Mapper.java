@@ -57,13 +57,6 @@ public interface ${className}Mapper {
 	 * @return List<${className}DTO>
 	 */
 	public List<${className}DTO> findList(${className}DTO ${classNameLower});
-	
-	/**
-	 * query list count
-	 * @param ${classNameLower}DTO
-	 * @return Integer
-	 */
-	public Integer findListCount(${className}DTO ${classNameLower});
 
 	/**
 	 * query by paging
@@ -94,14 +87,6 @@ public interface ${className}Mapper {
 	 * @return if success then != 0 else =0
 	 */
 	public Integer update(${className}DTO ${classNameLower});
-	
-	
-	/**
-	 * Multiple
-	 * @param ${classNameLower}s
-	 * @return if success then != 0 else =0
-	 */
-	public Integer updateMultiple(List<${className}DTO> ${classNameLower}s);
 
 
 	/**

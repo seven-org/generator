@@ -57,11 +57,6 @@ public class ${className}ServiceImpl implements ${className}Service {
     public List<${className}DTO> findList(${className}DTO ${classNameLower}) {
         return ${classNameLower}Mapper.findList(${classNameLower});
     }
-
-    @Override
-    public Integer findListCount(${className}DTO ${classNameLower}) {
-        return ${classNameLower}Mapper.findListCount(${classNameLower});
-    }
     
     @Override
     public Page<${className}DTO> findListByPage(${className}DTO ${classNameLower}, Pagenation pagenation) {
@@ -77,6 +72,9 @@ public class ${className}ServiceImpl implements ${className}Service {
 
 	public Integer insertMultiple(List<${className}DTO> ${classNameLower}s) {
 		//createTime
+		${classNameLower}s.forEach(t -> {
+    		t.setCreateTime(new Date());
+    	});
 		return ${classNameLower}Mapper.insertMultiple(${classNameLower}s);
 	}
 	
@@ -89,7 +87,11 @@ public class ${className}ServiceImpl implements ${className}Service {
     @Override
     public Integer updateMultiple(List<${className}DTO> ${classNameLower}s) {
     	//updateTime
-        return ${classNameLower}Mapper.updateMultiple(${classNameLower}s);
+    	${classNameLower}s.forEach(t -> {
+    		t.setUpdateTime(new Date());
+    		this.update(t);
+    	});
+        return null;
     }
 
     @Override
