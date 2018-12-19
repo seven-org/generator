@@ -23,7 +23,7 @@
 	<entry key="namespace">pages</entry>
 	
 	<!-- 自动生成的代码存放路径-->
-	<entry key="outRoot">/mnt/sda2/home/seven/Record/generator/jjt/promotion</entry>
+	<entry key="outRoot">/Users/se_ven/eight/record/generator</entry>
 
 	<!-- 需要移除的表名前缀,使用逗号进行分隔多个前缀,示例值: -->
 	<entry key="tableRemovePrefixes">EXH_,t_sse,t_,v_,jjt_,sys_</entry>

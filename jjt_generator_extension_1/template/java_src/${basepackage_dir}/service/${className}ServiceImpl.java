@@ -72,6 +72,8 @@ public class ${className}ServiceImpl implements ${className}Service {
 
 	public Integer insertMultiple(List<${className}DTO> ${classNameLower}s) {
 		//createTime
+		if (${classNameLower}s == null || ${classNameLower}s.isEmpty())
+			return DefaultConstants.ZERO_INTEGER;
 		${classNameLower}s.forEach(t -> {
     		t.setCreateTime(new Date());
     	});
@@ -87,6 +89,8 @@ public class ${className}ServiceImpl implements ${className}Service {
     @Override
     public Integer updateMultiple(List<${className}DTO> ${classNameLower}s) {
     	//updateTime
+    	if (${classNameLower}s == null || ${classNameLower}s.isEmpty())
+			return DefaultConstants.ZERO_INTEGER;
     	${classNameLower}s.forEach(t -> {
     		t.setUpdateTime(new Date());
     		this.update(t);
