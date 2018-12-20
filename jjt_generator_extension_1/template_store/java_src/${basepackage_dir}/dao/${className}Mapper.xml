@@ -1,0 +1,147 @@
+<#include "/macro.include"/>
+<#assign className = table.className>   
+<#assign classNameFirstLower = table.classNameFirstLower>   
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<#macro mapperEl value>${r"#{"}${value}}</#macro>
+<mapper namespace="${basepackage}.dao.${className}Mapper">
+
+	<select id="get" parameterType="String" resultType="${basepackage}.domain.dto.${className}DTO">
+		SELECT
+		<#list table.columns as column>
+			`${column.sqlName}` `${column.columnNameLower}`<#if column_has_next>,</#if>
+		</#list>
+			FROM `${table.sqlName}`
+			WHERE `${table.pkColumn}` = <@mapperEl "${table.pkColumn.columnNameFirstLower}"/>
+	</select>
+	
+	<select id="getForUpdate" parameterType="String" resultType="${basepackage}.domain.dto.${className}DTO">
+		SELECT
+		<#list table.columns as column>
+			`${column.sqlName}` `${column.columnNameLower}`<#if column_has_next>,</#if>
+		</#list>
+			FROM `${table.sqlName}`
+			WHERE `${table.pkColumn}` = <@mapperEl "${table.pkColumn.columnNameFirstLower}"/>
+		FOR UPDATE
+	</select>
+
+	<select id="getCountByCondition" parameterType="${basepackage}.domain.dto.${className}DTO" resultType="Integer">
+		SELECT
+			count(*)
+			FROM ${table.sqlName}
+			WHERE 1 = 1
+		<#list table.columns as column>
+			<if test="${column.columnNameLower}!=null"> and ${column.sqlName} = <@mapperEl column.columnNameLower/></if>
+		</#list>
+	</select>
+	
+	<select id="findOne" parameterType="${basepackage}.domain.dto.${className}DTO" resultType="${basepackage}.domain.dto.${className}DTO">
+		SELECT
+		<#list table.columns as column>
+			${column.sqlName} ${column.columnNameLower}<#if column_has_next>,</#if>
+		</#list>
+			FROM ${table.sqlName}
+			WHERE 1 = 1
+		<#list table.columns as column>
+			<if test="${column.columnNameLower}!=null"> and ${column.sqlName} = <@mapperEl column.columnNameLower/></if>
+		</#list>
+		LIMIT 1
+	</select>
+	
+	<select id="findOneForUpdate" parameterType="${basepackage}.domain.dto.${className}DTO" resultType="${basepackage}.domain.dto.${className}DTO">
+		SELECT
+		<#list table.columns as column>
+			${column.sqlName} ${column.columnNameLower}<#if column_has_next>,</#if>
+		</#list>
+			FROM ${table.sqlName}
+			WHERE 1 = 1
+		<#list table.columns as column>
+			<if test="${column.columnNameLower}!=null"> and ${column.sqlName} = <@mapperEl column.columnNameLower/></if>
+		</#list>
+		LIMIT 1
+		FOR UPDATE
+	</select>
+	
+	<select id="findList" parameterType="${basepackage}.domain.dto.${className}DTO" resultType="${basepackage}.domain.dto.${className}DTO">
+		SELECT
+		<#list table.columns as column>
+			`${column.sqlName}` `${column.columnNameLower}`<#if column_has_next>,</#if>
+		</#list>
+			FROM `${table.sqlName}`
+			WHERE 1 = 1
+		<#list table.columns as column>
+			<if test="${column.columnNameLower}!=null"> and `${column.sqlName}` = <@mapperEl column.columnNameLower/></if>
+		</#list>
+	</select>
+
+	<select id="findListByPage" parameterType="${basepackage}.domain.dto.${className}DTO" resultType="${basepackage}.domain.dto.${className}DTO">
+		SELECT
+		<#list table.columns as column>
+			`${column.sqlName}` `${column.columnNameLower}`<#if column_has_next>,</#if>
+		</#list>
+			FROM `${table.sqlName}`
+			WHERE 1 = 1
+		<#list table.columns as column>
+			<if test="${column.columnNameLower}!=null"> and `${column.sqlName}` = <@mapperEl column.columnNameLower/></if>
+		</#list>
+	</select>
+
+	<insert id="insert" parameterType="${basepackage}.domain.dto.${className}DTO" useGeneratedKeys="true" keyProperty="id" keyColumn="id">
+		INSERT INTO `${table.sqlName}` (
+		<#list table.notPkColumns as column>
+			<if test="${column.columnNameLower}!=null">`${column.sqlName}`,</if>
+		</#list>
+		<#list table.compositeIdColumns as column>
+			`${column.sqlName}`
+		</#list>
+			) VALUES (
+		<#list table.notPkColumns as column>
+			<if test="${column.columnNameLower}!=null"><@mapperEl column.columnNameFirstLower/>,</if>
+		</#list>
+		<#list table.compositeIdColumns as column>
+			<@mapperEl column.columnNameFirstLower/>
+		</#list>
+		)
+	</insert>
+	
+	<insert id="insertMultiple" parameterType="java.util.List">
+	    insert into `${table.sqlName}` (
+	    <#list table.notPkColumns as column>
+			`${column.sqlName}`,
+		</#list>
+		<#list table.compositeIdColumns as column>
+			`${column.sqlName}`
+		</#list>
+	    	) VALUES
+	    <foreach collection="list" item="item" index="index" separator="," >
+	        (
+	        <#list table.notPkColumns as column>
+				<@mapperEl "item." + column.columnNameFirstLower/>,
+			</#list>
+			<#list table.compositeIdColumns as column>
+				<@mapperEl "item." + column.columnNameFirstLower/>
+			</#list>
+	        )
+	    </foreach>
+	</insert>
+
+	<update id="update" parameterType="${basepackage}.domain.dto.${className}DTO">
+		UPDATE `${table.sqlName}` SET
+		<#list table.notPkColumns as column>
+			<if test="${column.columnNameLower}!=null">`${column.sqlName}` = <@mapperEl column.columnNameFirstLower/> ,</if>
+		</#list>
+		<#list table.compositeIdColumns as column>
+			`${column.sqlName}` = <@mapperEl column.columnNameFirstLower/>
+			</#list>
+			WHERE
+		<#list table.compositeIdColumns as column>
+			`${column.sqlName}` = <@mapperEl column.columnNameFirstLower/>
+		</#list>
+	</update>
+	
+	<update id="delete" parameterType="String">
+		DELETE FROM `${table.sqlName}`  
+		WHERE `${table.pkColumn}` = <@mapperEl "${table.pkColumn.columnNameFirstLower}"/>
+	</update>
+	
+</mapper>
