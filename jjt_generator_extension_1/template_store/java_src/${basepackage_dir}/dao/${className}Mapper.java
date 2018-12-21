@@ -66,6 +66,13 @@ public interface ${className}Mapper {
 	public Page<${className}DTO> findListByPage(${className}DTO ${classNameLower});
 
 	/**
+	 * query by paging
+	 * @param ${classNameLower}DTO
+	 * @return Page<${className}DTO>
+	 */
+	public Page<${className}DTO> findListByPageForSearch(${className}DTO ${classNameLower});
+	
+	/**
 	 * insert
 	 * @param ${classNameLower}DTO
 	 * @return insert object id

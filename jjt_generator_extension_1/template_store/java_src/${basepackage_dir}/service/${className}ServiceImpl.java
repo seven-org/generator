@@ -65,6 +65,12 @@ public class ${className}ServiceImpl implements ${className}Service {
         PageHelper.startPage(pagenation.getPageNum(), pagenation.getPageSize());
         return ${classNameLower}Mapper.findListByPage(${classNameLower});
     }
+    
+    @Override
+    public Page<${className}DTO> findListByPageForSearch(${className}DTO ${classNameLower}, Pagenation pagenation) {
+        PageHelper.startPage(pagenation.getPageNum(), pagenation.getPageSize());
+        return ${classNameLower}MapperForSearch.findListByPage(${classNameLower});
+    }
 
     @Override
     public Integer insert(${className}DTO ${classNameLower}) {

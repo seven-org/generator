@@ -60,6 +60,13 @@ public interface ${className}Service {
 	 * @return Page<${className}DTO>
 	 */
 	public Page<${className}DTO> findListByPage(${className}DTO ${classNameLower}, Pagenation pagenation);
+	
+	/**
+	 * query
+	 * @param ${classNameLower}DTO
+	 * @return Page<${className}DTO>
+	 */
+	public Page<${className}DTO> findListByPageForSearch(${className}DTO ${classNameLower}, Pagenation pagenation);
 
 	/**
 	 * insert

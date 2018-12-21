@@ -85,6 +85,18 @@
 			<if test="${column.columnNameLower}!=null"> and `${column.sqlName}` = <@mapperEl column.columnNameLower/></if>
 		</#list>
 	</select>
+	
+	<select id="findListByPageForSearch" parameterType="${basepackage}.domain.dto.${className}DTO" resultType="${basepackage}.domain.dto.${className}DTO">
+		SELECT
+		<#list table.columns as column>
+			`${column.sqlName}` `${column.columnNameLower}`<#if column_has_next>,</#if>
+		</#list>
+			FROM `${table.sqlName}`
+			WHERE 1 = 1
+		<#list table.columns as column>
+			<if test="${column.columnNameLower}!=null"> and `${column.sqlName}` = <@mapperEl column.columnNameLower/></if>
+		</#list>
+	</select>
 
 	<insert id="insert" parameterType="${basepackage}.domain.dto.${className}DTO" useGeneratedKeys="true" keyProperty="id" keyColumn="id">
 		INSERT INTO `${table.sqlName}` (
