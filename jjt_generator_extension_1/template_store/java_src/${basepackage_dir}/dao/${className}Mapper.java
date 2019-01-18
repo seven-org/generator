@@ -94,6 +94,13 @@ public interface ${className}Mapper {
 	 * @return if success then != 0 else =0
 	 */
 	public Integer update(${className}DTO ${classNameLower});
+	
+	/**
+	 * replace
+	 * @param ${classNameLower}
+	 * @return if success then != 0 else =0
+	 */
+	public Integer replace(${className}DTO ${classNameLower});
 
 
 	/**

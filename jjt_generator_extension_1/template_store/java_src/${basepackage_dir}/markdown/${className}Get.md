@@ -40,10 +40,6 @@
  **返回参数说明** 
 
 |参数名|类型|说明|
-|:-----  |:-----|-----                           |
-|name |int   |名称  |
-
-|参数名|类型|说明|
 |:----  |:----- |-----   |
 <#list table.columns as column>
 |${column.columnNameLower}  |${column.simpleJavaType} | ${column.remarks}    |

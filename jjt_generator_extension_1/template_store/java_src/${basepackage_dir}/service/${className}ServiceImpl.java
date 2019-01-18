@@ -95,6 +95,12 @@ public class ${className}ServiceImpl implements ${className}Service {
     }
     
     @Override
+    public Integer replace(${className}DTO ${classNameLower}) {
+        ${classNameLower}.setUpdateTime(new Date());
+        return ${classNameLower}Mapper.update(${classNameLower});
+    }
+    
+    @Override
     public Integer updateMultiple(List<${className}DTO> ${classNameLower}s) {
     	//updateTime
     	if (${classNameLower}s == null || ${classNameLower}s.isEmpty())

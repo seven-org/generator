@@ -93,6 +93,13 @@ public interface ${className}Service {
 	
 	
 	/**
+	 * replace
+	 * @param ${classNameLower}DTO
+	 * @return
+	 */
+	public Integer replace(${className}DTO ${classNameLower});
+	
+	/**
 	 * Multiple
 	 * @param ${classNameLower}DTO
 	 * @return if success then != 0 else =0
