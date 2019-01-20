@@ -151,6 +151,20 @@
 		</#list>
 	</update>
 	
+	<update id="replace" parameterType="${basepackage}.domain.dto.${className}DTO">
+		UPDATE `${table.sqlName}` SET
+		<#list table.notPkColumns as column>
+			`${column.sqlName}` = <@mapperEl column.columnNameFirstLower/> ,
+		</#list>
+		<#list table.compositeIdColumns as column>
+			`${column.sqlName}` = <@mapperEl column.columnNameFirstLower/>
+			</#list>
+			WHERE
+		<#list table.compositeIdColumns as column>
+			`${column.sqlName}` = <@mapperEl column.columnNameFirstLower/>
+		</#list>
+	</update>
+	
 	<update id="delete" parameterType="String">
 		DELETE FROM `${table.sqlName}`  
 		WHERE `${table.pkColumn}` = <@mapperEl "${table.pkColumn.columnNameFirstLower}"/>

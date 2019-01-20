@@ -52,7 +52,7 @@ public class ${className}ServiceImpl implements ${className}Service {
 	
 	@Override
 	public ${className}DTO findOneForUpdate(${className}DTO ${classNameLower}) {
-		return ${classNameLower}Mapper.findOne(${classNameLower});
+		return ${classNameLower}Mapper.findOneForUpdate(${classNameLower});
 	}
    
     @Override
@@ -69,7 +69,7 @@ public class ${className}ServiceImpl implements ${className}Service {
     @Override
     public Page<${className}DTO> findListByPageForSearch(${className}DTO ${classNameLower}, Pagenation pagenation) {
         PageHelper.startPage(pagenation.getPageNum(), pagenation.getPageSize());
-        return ${classNameLower}Mapper.findListByPage(${classNameLower});
+        return ${classNameLower}Mapper.findListByPageForSearch(${classNameLower});
     }
 
     @Override
@@ -90,6 +90,12 @@ public class ${className}ServiceImpl implements ${className}Service {
 	
     @Override
     public Integer update(${className}DTO ${classNameLower}) {
+        ${classNameLower}.setUpdateTime(new Date());
+        return ${classNameLower}Mapper.update(${classNameLower});
+    }
+    
+    @Override
+    public Integer replace(${className}DTO ${classNameLower}) {
         ${classNameLower}.setUpdateTime(new Date());
         return ${classNameLower}Mapper.update(${classNameLower});
     }
