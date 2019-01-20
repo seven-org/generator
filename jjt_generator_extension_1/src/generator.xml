@@ -14,7 +14,7 @@
 	<entry key="version">v1</entry>
 
 	<!-- 表示生成的java源文件所在的包路径，可在模板中引用该变量，请看template/java_src下的${basepackage_dir},多了_dir表示将.换成/代表多级目录 -->
-	<entry key="basepackage">com.jjt.store.category</entry>
+	<entry key="basepackage">com.jjt.store.order</entry>
 	
 	<!-- 自定义变量，可设置多个以被其它模板中引用。例如对用户表进行代码生成时，可以设置为用户，这样在新增或编辑页面时可引用该变量-->
 	<entry key="bussinessName">文件</entry>
@@ -23,7 +23,7 @@
 	<entry key="namespace">pages</entry>
 	
 	<!-- 自动生成的代码存放路径-->
-	<entry key="outRoot">/home/seven/Record/generator/jjt/store</entry>
+	<entry key="outRoot">/Users/se_ven/eight/record/generator/java_src/com/jjt/store</entry>
 
 	<!-- 需要移除的表名前缀,使用逗号进行分隔多个前缀,示例值: -->
 	<entry key="tableRemovePrefixes">EXH_,t_sse,t_,v_,jjt_,sys_</entry>
