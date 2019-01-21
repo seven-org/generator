@@ -97,7 +97,7 @@ public class ${className}ServiceImpl implements ${className}Service {
     @Override
     public Integer replace(${className}DTO ${classNameLower}) {
         ${classNameLower}.setUpdateTime(new Date());
-        return ${classNameLower}Mapper.update(${classNameLower});
+        return ${classNameLower}Mapper.replace(${classNameLower});
     }
     
     @Override
