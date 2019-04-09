@@ -116,6 +116,31 @@
 		)
 	</insert>
 	
+	<insert id="insertOrUpdate" parameterType="${basepackage}.domain.dto.${className}DTO" useGeneratedKeys="true" keyProperty="id" keyColumn="id">
+		INSERT INTO `${table.sqlName}` (
+		<#list table.notPkColumns as column>
+			<if test="${column.columnNameLower}!=null">`${column.sqlName}`,</if>
+		</#list>
+		<#list table.compositeIdColumns as column>
+			`${column.sqlName}`
+		</#list>
+			) VALUES (
+		<#list table.notPkColumns as column>
+			<if test="${column.columnNameLower}!=null"><@mapperEl column.columnNameFirstLower/>,</if>
+		</#list>
+		<#list table.compositeIdColumns as column>
+			<@mapperEl column.columnNameFirstLower/>
+		</#list>
+		)
+		ON DUPLICATE KEY UPDATE
+		<#list table.notPkColumns as column>
+			<if test="${column.columnNameLower}!=null">`${column.sqlName}` = <@mapperEl column.columnNameFirstLower/> ,</if>
+		</#list>
+		<#list table.compositeIdColumns as column>
+			`${column.sqlName}` = <@mapperEl column.columnNameFirstLower/>
+			</#list>
+	</insert>
+	
 	<insert id="insertMultiple" parameterType="java.util.List">
 	    insert into `${table.sqlName}` (
 	    <#list table.notPkColumns as column>

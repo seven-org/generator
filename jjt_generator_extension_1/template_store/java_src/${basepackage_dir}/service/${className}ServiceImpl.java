@@ -77,7 +77,15 @@ public class ${className}ServiceImpl implements ${className}Service {
         ${classNameLower}.setCreateTime(new Date());
         return ${classNameLower}Mapper.insert(${classNameLower});
     }
+    
+    @Override
+    public Integer insertOrUpdate(${className}DTO ${classNameLower}) {
+        ${classNameLower}.setCreateTime(new Date());
+        ${classNameLower}.setUpdateTime(new Date());
+        return ${classNameLower}Mapper.insertOrUpdate(${classNameLower});
+    }
 
+    @Override
 	public Integer insertMultiple(List<${className}DTO> ${classNameLower}s) {
 		//createTime
 		if (${classNameLower}s == null || ${classNameLower}s.isEmpty())

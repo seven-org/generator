@@ -81,6 +81,14 @@ public interface ${className}Mapper {
 	
 	
 	/**
+	 * insertOrUpdate
+	 * @param ${classNameLower}DTO
+	 * @return insert object id
+	 */
+	public Integer insertOrUpdate(${className}DTO ${classNameLower});
+	
+	
+	/**
 	 * insertMultiple
 	 * @param ${classNameLower}s
 	 * @return Integer
@@ -94,6 +102,7 @@ public interface ${className}Mapper {
 	 * @return if success then != 0 else =0
 	 */
 	public Integer update(${className}DTO ${classNameLower});
+	
 	
 	/**
 	 * replace

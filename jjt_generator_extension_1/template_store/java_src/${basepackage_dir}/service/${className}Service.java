@@ -77,6 +77,14 @@ public interface ${className}Service {
 	
 	
 	/**
+	 * insertOrUpdate
+	 * @param ${classNameLower}DTO
+	 * @return
+	 */
+	public Integer insertOrUpdate(${className}DTO ${classNameLower});
+	
+	
+	/**
 	 * insertMultiple
 	 * @param ${classNameLower}DTO
 	 * @return Integer
