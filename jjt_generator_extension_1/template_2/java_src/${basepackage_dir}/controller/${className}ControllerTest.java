@@ -3,7 +3,7 @@
 <#assign classNameLower = className?uncap_first>
 <#assign shortName = table.shortName>
 
-package ${basepackage}.api.controller;
+package ${basepackage}.api;
 
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
 import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.*;
@@ -22,10 +22,9 @@ import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.jjt.store.component.base.constant.DefaultConstants;
-import com.jjt.store.component.base.utils.JsonUtils;
-import ${basepackage}.api.constants.TestConsts;
-import ${basepackage}.domain.dto.${className}DTO;
+import com.doudou.user.component.base.DefaultConstants;
+import com.doudou.user.component.base.JsonUtils;
+import ${basepackage}.component.dto.${className}DTO;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 
@@ -59,7 +58,9 @@ public class ${className}ControllerTest {
      */
     @Test
     public void testGet${className}s() throws Exception {
-        mockMvc.perform(get("/${version}/${classNameLower}s").header(DefaultConstants.TOKEN, TestConsts.TokenValue))
+        mockMvc.perform(get("/${version}/${classNameLower}s")
+//        		.header(DefaultConstants.TOKEN, TestConsts.TokenValue)
+        		)
         .andDo(print())
         .andExpect(status().isOk())
         .andExpect(content().contentType(MediaType.APPLICATION_JSON_UTF8_VALUE))
@@ -74,7 +75,7 @@ public class ${className}ControllerTest {
     	${className}DTO ${classNameLower} = new ${className}DTO();
     	System.out.println(JsonUtils.AsJsonString(${classNameLower}));
         mockMvc.perform(post("/${version}/${classNameLower}s")
-        		.header(DefaultConstants.TOKEN, TestConsts.TokenValue)
+//        		.header(DefaultConstants.TOKEN, TestConsts.TokenValue)
         		.contentType(MediaType.APPLICATION_JSON)
         		.content(JsonUtils.AsJsonString(${classNameLower})))
         .andDo(print())
@@ -91,7 +92,7 @@ public class ${className}ControllerTest {
     	${className}DTO ${classNameLower} = new ${className}DTO();
     	System.out.println(JsonUtils.AsJsonString(${classNameLower}));
         mockMvc.perform(patch("/${version}/${classNameLower}s")
-        		.header(DefaultConstants.TOKEN, TestConsts.TokenValue)
+//        		.header(DefaultConstants.TOKEN, TestConsts.TokenValue)
         		.contentType(MediaType.APPLICATION_JSON)
         		.content(JsonUtils.AsJsonString(${classNameLower})))
         .andDo(print())
@@ -106,7 +107,8 @@ public class ${className}ControllerTest {
     @Test
     public void testDelete${className}s() throws Exception {
         mockMvc.perform(delete("/${version}/${classNameLower}s")
-        		.header(DefaultConstants.TOKEN, TestConsts.TokenValue))
+//        		.header(DefaultConstants.TOKEN, TestConsts.TokenValue)
+        		)
         .andDo(print())
         .andExpect(status().isOk())
         .andExpect(content().contentType(MediaType.APPLICATION_JSON_UTF8_VALUE))
@@ -118,7 +120,9 @@ public class ${className}ControllerTest {
      */
     @Test
     public void testGetOne${className}Detail() throws Exception {
-        mockMvc.perform(get("/${version}/${classNameLower}s/1").header(DefaultConstants.TOKEN, TestConsts.TokenValue))
+        mockMvc.perform(get("/${version}/${classNameLower}s/1")
+//        		.header(DefaultConstants.TOKEN, TestConsts.TokenValue)
+        		)
         .andDo(print())
         .andExpect(status().isOk())
         .andExpect(content().contentType(MediaType.APPLICATION_JSON_UTF8_VALUE))

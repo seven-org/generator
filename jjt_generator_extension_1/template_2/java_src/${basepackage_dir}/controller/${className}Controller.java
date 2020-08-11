@@ -20,11 +20,11 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import com.jjt.store.component.base.JsonResponse;
-import com.jjt.store.component.base.PageJsonResponse;
-import com.jjt.store.component.base.Pagenation;
-import com.jjt.store.component.base.utils.ResultUtils;
-import ${basepackage}.domain.dto.${className}DTO;
+import com.doudou.user.component.base.JsonResponse;
+import com.doudou.user.component.base.PageJsonResponse;
+import com.doudou.user.component.base.Pagenation;
+import com.doudou.user.component.utils.ResultUtils;
+import ${basepackage}.component.dto.${className}DTO;
 import ${basepackage}.service.${className}Service;
 
 import java.util.List;

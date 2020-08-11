@@ -6,7 +6,7 @@
 <#macro mapperEl value>${r"#{"}${value}}</#macro>
 <mapper namespace="${basepackage}.dao.${className}Mapper">
 
-	<select id="get" parameterType="String" resultType="${basepackage}.domain.dto.${className}DTO">
+	<select id="get" parameterType="String" resultType="${basepackage}.component.dto.${className}DTO">
 		SELECT
 		<#list table.columns as column>
 			`${column.sqlName}` `${column.columnNameLower}`<#if column_has_next>,</#if>
@@ -15,7 +15,7 @@
 			WHERE `${table.pkColumn}` = <@mapperEl "${table.pkColumn.columnNameFirstLower}"/>
 	</select>
 	
-	<select id="getForUpdate" parameterType="String" resultType="${basepackage}.domain.dto.${className}DTO">
+	<select id="getForUpdate" parameterType="String" resultType="${basepackage}.component.dto.${className}DTO">
 		SELECT
 		<#list table.columns as column>
 			`${column.sqlName}` `${column.columnNameLower}`<#if column_has_next>,</#if>
@@ -25,7 +25,7 @@
 		FOR UPDATE
 	</select>
 
-	<select id="getCountByCondition" parameterType="${basepackage}.domain.dto.${className}DTO" resultType="Integer">
+	<select id="getCountByCondition" parameterType="${basepackage}.component.dto.${className}DTO" resultType="Integer">
 		SELECT
 			count(*)
 			FROM ${table.sqlName}
@@ -35,7 +35,7 @@
 		</#list>
 	</select>
 	
-	<select id="findOne" parameterType="${basepackage}.domain.dto.${className}DTO" resultType="${basepackage}.domain.dto.${className}DTO">
+	<select id="findOne" parameterType="${basepackage}.component.dto.${className}DTO" resultType="${basepackage}.component.dto.${className}DTO">
 		SELECT
 		<#list table.columns as column>
 			${column.sqlName} ${column.columnNameLower}<#if column_has_next>,</#if>
@@ -48,7 +48,7 @@
 		LIMIT 1
 	</select>
 	
-	<select id="findOneForUpdate" parameterType="${basepackage}.domain.dto.${className}DTO" resultType="${basepackage}.domain.dto.${className}DTO">
+	<select id="findOneForUpdate" parameterType="${basepackage}.component.dto.${className}DTO" resultType="${basepackage}.component.dto.${className}DTO">
 		SELECT
 		<#list table.columns as column>
 			${column.sqlName} ${column.columnNameLower}<#if column_has_next>,</#if>
@@ -62,7 +62,7 @@
 		FOR UPDATE
 	</select>
 	
-	<select id="findList" parameterType="${basepackage}.domain.dto.${className}DTO" resultType="${basepackage}.domain.dto.${className}DTO">
+	<select id="findList" parameterType="${basepackage}.component.dto.${className}DTO" resultType="${basepackage}.component.dto.${className}DTO">
 		SELECT
 		<#list table.columns as column>
 			`${column.sqlName}` `${column.columnNameLower}`<#if column_has_next>,</#if>
@@ -74,7 +74,7 @@
 		</#list>
 	</select>
 
-	<select id="findListByPage" parameterType="${basepackage}.domain.dto.${className}DTO" resultType="${basepackage}.domain.dto.${className}DTO">
+	<select id="findListByPage" parameterType="${basepackage}.component.dto.${className}DTO" resultType="${basepackage}.component.dto.${className}DTO">
 		SELECT
 		<#list table.columns as column>
 			`${column.sqlName}` `${column.columnNameLower}`<#if column_has_next>,</#if>
@@ -86,7 +86,7 @@
 		</#list>
 	</select>
 	
-	<select id="findListByPageForSearch" parameterType="${basepackage}.domain.dto.${className}DTO" resultType="${basepackage}.domain.dto.${className}DTO">
+	<select id="findListByPageForSearch" parameterType="${basepackage}.component.dto.${className}DTO" resultType="${basepackage}.component.dto.${className}DTO">
 		SELECT
 		<#list table.columns as column>
 			`${column.sqlName}` `${column.columnNameLower}`<#if column_has_next>,</#if>
@@ -98,7 +98,7 @@
 		</#list>
 	</select>
 
-	<insert id="insert" parameterType="${basepackage}.domain.dto.${className}DTO" useGeneratedKeys="true" keyProperty="id" keyColumn="id">
+	<insert id="insert" parameterType="${basepackage}.component.dto.${className}DTO" useGeneratedKeys="true" keyProperty="id" keyColumn="id">
 		INSERT INTO `${table.sqlName}` (
 		<#list table.notPkColumns as column>
 			<if test="${column.columnNameLower}!=null">`${column.sqlName}`,</if>
@@ -116,7 +116,7 @@
 		)
 	</insert>
 	
-	<insert id="insertOrUpdate" parameterType="${basepackage}.domain.dto.${className}DTO" useGeneratedKeys="true" keyProperty="id" keyColumn="id">
+	<insert id="insertOrUpdate" parameterType="${basepackage}.component.dto.${className}DTO" useGeneratedKeys="true" keyProperty="id" keyColumn="id">
 		INSERT INTO `${table.sqlName}` (
 		<#list table.notPkColumns as column>
 			<if test="${column.columnNameLower}!=null">`${column.sqlName}`,</if>
@@ -162,7 +162,7 @@
 	    </foreach>
 	</insert>
 
-	<update id="update" parameterType="${basepackage}.domain.dto.${className}DTO">
+	<update id="update" parameterType="${basepackage}.component.dto.${className}DTO">
 		UPDATE `${table.sqlName}` SET
 		<#list table.notPkColumns as column>
 			<if test="${column.columnNameLower}!=null">`${column.sqlName}` = <@mapperEl column.columnNameFirstLower/> ,</if>
@@ -176,7 +176,7 @@
 		</#list>
 	</update>
 	
-	<update id="replace" parameterType="${basepackage}.domain.dto.${className}DTO">
+	<update id="replace" parameterType="${basepackage}.component.dto.${className}DTO">
 		UPDATE `${table.sqlName}` SET
 		<#list table.notPkColumns as column>
 			`${column.sqlName}` = <@mapperEl column.columnNameFirstLower/> ,

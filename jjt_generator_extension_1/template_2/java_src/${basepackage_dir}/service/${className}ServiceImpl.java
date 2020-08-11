@@ -6,6 +6,7 @@
 package ${basepackage}.service;
 
 
+import org.apache.commons.lang.math.NumberUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,9 +18,8 @@ import com.github.pagehelper.Page;
 import com.github.pagehelper.PageHelper;
 
 import ${basepackage}.dao.${className}Mapper;
-import ${basepackage}.domain.dto.${className}DTO;
-import com.jjt.store.component.base.Pagenation;
-import com.jjt.store.component.base.constant.DefaultConstants;
+import ${basepackage}.component.dto.${className}DTO;
+import com.doudou.user.component.base.Pagenation;
 import ${basepackage}.service.${className}Service;
 
 /**
@@ -89,7 +89,7 @@ public class ${className}ServiceImpl implements ${className}Service {
 	public Integer insertMultiple(List<${className}DTO> ${classNameLower}s) {
 		//createTime
 		if (${classNameLower}s == null || ${classNameLower}s.isEmpty())
-			return DefaultConstants.ZERO_INTEGER;
+			return NumberUtils.INTEGER_ZERO;
 		${classNameLower}s.forEach(t -> {
     		t.setCreateTime(new Date());
     	});
@@ -112,7 +112,7 @@ public class ${className}ServiceImpl implements ${className}Service {
     public Integer updateMultiple(List<${className}DTO> ${classNameLower}s) {
     	//updateTime
     	if (${classNameLower}s == null || ${classNameLower}s.isEmpty())
-			return DefaultConstants.ZERO_INTEGER;
+    		return NumberUtils.INTEGER_ZERO;
     	${classNameLower}s.forEach(t -> {
     		t.setUpdateTime(new Date());
     		this.update(t);

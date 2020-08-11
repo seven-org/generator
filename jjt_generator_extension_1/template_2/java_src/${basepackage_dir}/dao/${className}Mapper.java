@@ -6,7 +6,7 @@
 package ${basepackage}.dao;
 
 import com.github.pagehelper.Page;
-import ${basepackage}.domain.dto.${className}DTO;
+import ${basepackage}.component.dto.${className}DTO;
 import java.util.List;
 
 /**

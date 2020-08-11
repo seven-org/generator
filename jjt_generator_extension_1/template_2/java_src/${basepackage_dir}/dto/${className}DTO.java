@@ -4,11 +4,11 @@
 <#assign classNameLower = className?uncap_first>
 <#assign shortName = table.shortName>
 
-package ${basepackage}.domain.dto;
+package ${basepackage}.component.dto;
 
 import java.io.Serializable;
 
-import ${basepackage}.domain.entity.${className};
+import ${basepackage}.entity.${className};
 
 /**
  * createTime: <#if now??>${now?string('yyyy-MM-dd HH:mm:ss')}</#if>

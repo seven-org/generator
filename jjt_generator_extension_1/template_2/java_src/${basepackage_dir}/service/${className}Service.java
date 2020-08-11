@@ -6,9 +6,9 @@
 package ${basepackage}.service;
 
 import com.github.pagehelper.Page;
-import com.jjt.store.component.base.Pagenation;
+import com.doudou.user.component.base.Pagenation;
 
-import ${basepackage}.domain.dto.${className}DTO;
+import ${basepackage}.component.dto.${className}DTO;
 
 import java.util.List;
 
