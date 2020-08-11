@@ -22,8 +22,8 @@ import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.doudou.user.component.base.DefaultConstants;
-import com.doudou.user.component.base.JsonUtils;
+import com.doudou.user.component.constant.DefaultConstants;
+import com.doudou.user.component.utils.JsonUtils;
 import ${basepackage}.component.dto.${className}DTO;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
