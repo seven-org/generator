@@ -19,7 +19,7 @@ import com.github.pagehelper.PageHelper;
 
 import ${basepackage}.dao.${className}Mapper;
 import ${basepackage}.component.dto.${className}DTO;
-import com.doudou.user.component.base.Pagenation;
+import ${basepackage}.component.base.Pagenation;
 import ${basepackage}.service.${className}Service;
 
 /**

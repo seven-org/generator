@@ -6,7 +6,7 @@
 package ${basepackage}.service;
 
 import com.github.pagehelper.Page;
-import com.doudou.user.component.base.Pagenation;
+import ${basepackage}.component.base.Pagenation;
 
 import ${basepackage}.component.dto.${className}DTO;
 

@@ -20,10 +20,10 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import com.doudou.user.component.base.JsonResponse;
-import com.doudou.user.component.base.PageJsonResponse;
-import com.doudou.user.component.base.Pagenation;
-import com.doudou.user.component.utils.ResultUtils;
+import ${basepackage}.component.base.JsonResponse;
+import ${basepackage}.component.base.PageJsonResponse;
+import ${basepackage}.component.base.Pagenation;
+import ${basepackage}.component.utils.ResultUtils;
 import ${basepackage}.component.dto.${className}DTO;
 import ${basepackage}.service.${className}Service;
 
