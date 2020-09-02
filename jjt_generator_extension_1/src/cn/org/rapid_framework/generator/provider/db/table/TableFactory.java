@@ -72,7 +72,20 @@ public class TableFactory {
 		try {
 			if(connection == null || connection.isClosed()) {
 				loadJdbcDriver();
-				connection = DriverManager.getConnection(GeneratorProperties.getRequiredProperty("jdbc.url"),GeneratorProperties.getRequiredProperty("jdbc.username"),GeneratorProperties.getProperty("jdbc.password"));
+				
+				java.util.Properties info = new java.util.Properties();
+				String url = GeneratorProperties.getRequiredProperty("jdbc.url");
+				String user = GeneratorProperties.getRequiredProperty("jdbc.username");
+				String password = GeneratorProperties.getProperty("jdbc.password");
+		        if (user != null) {
+		            info.put("user", user);
+		        }
+		        if (password != null) {
+		            info.put("password", password);
+		        }
+		        info.setProperty("remarks", "true"); //设置可以获取remarks信息 
+	            info.setProperty("useInformationSchema", "true");//设置可以获取tables remarks信息
+				connection = DriverManager.getConnection(url, info);
 			}
 			return connection;
 		}catch(SQLException e) {
