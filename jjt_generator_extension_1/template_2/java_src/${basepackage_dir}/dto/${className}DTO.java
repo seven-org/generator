@@ -10,11 +10,18 @@ import java.io.Serializable;
 
 import ${basepackage}.entity.${className};
 
+import lombok.Data;
+import lombok.NoArgsConstructor;
+import lombok.experimental.SuperBuilder;
+
 /**
  * createTime: <#if now??>${now?string('yyyy-MM-dd HH:mm:ss')}</#if>
  * @author ${author}
  * @version
  */
+@Data
+@SuperBuilder
+@NoArgsConstructor
 public class ${className}DTO extends ${className} implements Serializable{
 	
 	private static final long serialVersionUID = 1L;

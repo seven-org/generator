@@ -9,6 +9,11 @@ package ${basepackage}.entity;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+import lombok.experimental.SuperBuilder;
+
 import com.fasterxml.jackson.annotation.JsonFormat;
 import org.springframework.format.annotation.DateTimeFormat;
 
@@ -17,6 +22,10 @@ import org.springframework.format.annotation.DateTimeFormat;
  * @author ${author}
  * @version
  */
+@Data
+@SuperBuilder
+@AllArgsConstructor
+@NoArgsConstructor
 @ApiModel(value="${className} ${table.remarks}", description="${table.remarks} 对象")
 public class ${className}{
 
