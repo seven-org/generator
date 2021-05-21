@@ -15,9 +15,10 @@
 
 	<!-- 表示生成的java源文件所在的包路径，可在模板中引用该变量，请看template/java_src下的${basepackage_dir},多了_dir表示将.换成/代表多级目录 -->
 	<!-- <entry key="basepackage">com.doudou.hqbackend</entry> -->
-	<!-- <entry key="basepackage">com.doudou.store.ps</entry> -->
-	<entry key="basepackage">com.doudou.user</entry>
+	<!-- <entry key="basepackage">com.doudou.user</entry> -->
+	<!-- <entry key="basepackage">com.doudou.factory</entry> -->
 	<!-- <entry key="basepackage">com.jjt.ha</entry> -->
+	<entry key="basepackage">com.doudou.community</entry>
 	
 	<!-- 自定义变量，可设置多个以被其它模板中引用。例如对用户表进行代码生成时，可以设置为用户，这样在新增或编辑页面时可引用该变量-->
 	<entry key="bussinessName">文件</entry>
@@ -28,8 +29,10 @@
 	<!-- 自动生成的代码存放路径-->
 	<!-- <entry key="outRoot">/home/seven/Record/generator/jjt/store</entry> -->
 	<!-- <entry key="outRoot">/home/seven/Record/generator/doudou/ps</entry> -->
-	<entry key="outRoot">/home/seven/Record/generator/doudou/user</entry>
+	<!-- <entry key="outRoot">/home/seven/Record/generator/doudou/user</entry> -->
+	<!-- <entry key="outRoot">/home/seven/Record/generator/doudou/factory</entry> -->
 	<!-- <entry key="outRoot">/home/seven/Record/generator/doudou/hqbackend</entry> -->
+	<entry key="outRoot">/home/seven/Record/generator/doudou/community</entry>
 
 	<!-- 需要移除的表名前缀,使用逗号进行分隔多个前缀,示例值: -->
 	<entry key="tableRemovePrefixes">EXH_,t_sse,t_,v_,dd_,sys_</entry>
@@ -71,8 +74,10 @@
 	
 	<!-- Mysql -->
 	<!-- <entry key="jdbc.url">jdbc:mysql://rm-uf6919wf60hn6mp61ho.mysql.rds.aliyuncs.com:3306/doudou-ps-test?useSSL=false&amp;allowPublicKeyRetrieval=true&amp;characterEncoding=utf-8&amp;serverTimezone=Asia/Shanghai</entry> -->
-	<entry key="jdbc.url">jdbc:mysql://rm-uf6919wf60hn6mp61ho.mysql.rds.aliyuncs.com:3306/doudou-user-test?useSSL=false&amp;allowPublicKeyRetrieval=true&amp;characterEncoding=utf-8&amp;serverTimezone=Asia/Shanghai</entry>
+	<!-- <entry key="jdbc.url">jdbc:mysql://rm-uf6919wf60hn6mp61ho.mysql.rds.aliyuncs.com:3306/doudou-user-test?useSSL=false&amp;allowPublicKeyRetrieval=true&amp;characterEncoding=utf-8&amp;serverTimezone=Asia/Shanghai</entry> -->
+	<!-- <entry key="jdbc.url">jdbc:mysql://rm-uf6919wf60hn6mp61ho.mysql.rds.aliyuncs.com:3306/doudou-factory-test?useSSL=false&amp;allowPublicKeyRetrieval=true&amp;characterEncoding=utf-8&amp;serverTimezone=Asia/Shanghai</entry> -->
 	<!-- <entry key="jdbc.url">jdbc:mysql://rm-uf6919wf60hn6mp61ho.mysql.rds.aliyuncs.com:3306/doudou-hqbackend-test?useSSL=false&amp;allowPublicKeyRetrieval=true&amp;characterEncoding=utf-8&amp;serverTimezone=Asia/Shanghai</entry> -->
+	<entry key="jdbc.url">jdbc:mysql://rm-uf6919wf60hn6mp61ho.mysql.rds.aliyuncs.com:3306/doudou-community-test?useSSL=false&amp;allowPublicKeyRetrieval=true&amp;characterEncoding=utf-8&amp;serverTimezone=Asia/Shanghai</entry>
 	<entry key="jdbc.driver">com.mysql.jdbc.Driver</entry>
 
 	<!-- Oracle 	jdbc:oracle:oci:@tnsname_devdb

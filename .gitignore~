@@ -47,5 +47,3 @@ Thumbs.db
 
 !.mvn/wrapper/maven-wrapper.jar
 /.metadata/
-
-*/.attach_pid*
